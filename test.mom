@@ -1,32 +1,3 @@
-.PAPER A4
-.T_Margin 1i
-.B_Margin 1i
-.L_Margin 1i
-.R_Margin 1i
-.PRINTSTYLE TYPESET
-.FT TR
-.AUTOLEAD 1.5 FACTOR
-.JUSTIFY
-.HY OFF
-.CHAPTER_STRING "\&"
-.INCLUDE extracts.mom
-.TITLE "Teszt dokumentum, avagy mi a fene van itten"
-.HEADERS o
-.PAGENUM_HYPHENS o
-.HEADING_STYLE 1 \
-SIZE 12
-.BLOCKQUOTE_SIZE 12
-.BLOCKQUOTE_INDENT 2
-.R1
-no-label-in-text
-no-label-in-reference
-join-authors " \[en] " " \[en] " " \[en] " 
-database /home/gergo/projekt/groff/references/temp
-.R2
-.FOOTNOTE_REFS
-.INDENT_REFS FOOTNOTE 0
-.BIBLIOGRAPHY_STRING "Irodalomjegyzék"
-.START
 .HEADING 1 "Tesztelő brigád"
 .PP
 This is an example paragraph. I wonder what goes on here. Lalalala.
@@ -88,6 +59,6 @@ no-label-in-text
 no-label-in-reference
 join-authors " \[en] " " \[en] " " \[en] " 
 sort A1Q1T1B1E1
-bibliography /home/gergo/projekt/groff/references/temp
+bibliography /home/gergo/projekt/groff/.temp_ref_db
 .R2
 .BIBLIOGRAPHY OFF
