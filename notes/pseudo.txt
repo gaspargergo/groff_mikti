@@ -1,0 +1,88 @@
+# ref*specs (THIS NEEDS MODIFICATION)
+    - has no arguments
+    - if the PRINT_STYLE register is 1(TYPESET), define the neutral apostrophe as the escape sequence for the neutral apostophe, why?
+    - defines all ref*spec!(number 0-5) variables, which specify the order of fields in the reference label as a string containing a certain order of characters representing fields in a reference database, delimited by spaces
+
+
+# ]-
+    - This is the first macro that refer calls, before assigning the fields of the reference to their respective strings and after producing a label in [F, "1", and interpolating the brackets (this functionality is not needed as inline references are not used here)
+    - this calls the ref*specs macro, defining each reference spec 
+    - resets all [(letter) strings, to make sure they are not defined
+    - removes register [e if it's defined
+    - remove register ref*type
+    - removes ref*string
+    - essentially, this macro resets registers and strings to be used later, so that they are not accidentally defined, and also because it will probably use conditional statements to check for problems with defining them
+
+
+# ][
+		- This is the second macro refer calls, after assigning the fiels of each reference to their respective strings, and setting some registers
+		- It has two arguments, both supplied by refer: $1 is the type of reference, $2 is the symbolic name for the type of reference(mom does not use this)
+		- sets register ref*type to first argument
+		-	if ref*type is zero (internet reference), and has city of publication but no publisher, set ref*type to 2(book), if it has no city, set it to book as well (these are probably correcting some type of behavior in refer?)
+		-if [q field exists (forcing a title into double quotes), also set type as book
+		- if [u field exists(url), set type to 0, internet
+		- if reference type is 3(article within book), checks for technical references, by somehow(?) checking whether the R or G fields are filled, both mean different technical reports, so it sets the ref*type and an appropriate ref*spec 
+		- checks if the T field ends with an end-of-sentence character (in this case, refer sets the [T register to 1), if this is the case, both [T1 and [T2 are aliased to [T (the usage of T1 and T2 is not clear atm)
+
+		- MAIN PART: checks whether the current ref*spec is defined, if it is, runs the ref*build macro passing the interpolated ref*spec(number) as an argument(because the sequence of letters have spaces between them, they are passed as separate arguments to ref*spec, this is used to run the macro for all of them); this macro assembles the reference
+				- if it is not defined, throws an error and builds as an internet reference anyways
+
+		- this is not entirely clear, but also not the most important, if hyphenation is turned on, then it sets the #RESTORE_HY register to one as well,  presumably for a later check, if footnotes do not get hyphenated
+			- if hyphenation in references is off(#REF_HY is empty), disable automatic hyphenation
+
+		- OTHER MAIN PART: runs ref*print, prints the assembled reference
+
+		- if #RESTORE_HY was set (hyphenation was on before printing the reference) set .hy to the value in #RESTORE_HY
+		- remove the register #RESTORE_HY, since it is no longer needed
+		- remove the string ref*string
+		- remove [F (the label), [T1, and [T2
+
+
+# ref*build (the whole point of this function is to build the ref*string string)
+	- if printstyle is set to typewritten, increase space size, so it looks better in a reference
+	- reset ref*string variable
+
+	- for all arguments passed to ref*build (these are all the field labels the program chose in ref*specs) 
+		- if the label is defined (this is useful so an erronous label reference does not stop the whole reference from being built)
+			- if there is a ref*add- macro defined for the label(again, safety check), call that macro
+			- if the label exists in the reference file but there is no such macro defined, call ref*add-dflt (this is incredibly well thought out, so even if there is no definiton, there is a default way to handle it instead of throwing an error - this makes it easily extendable, since only the ref*specs have to be modified for new label field to be usable in a refer database)
+		- use the shift request to move to the next argument
+	
+	- if the ref*string variable is defined (this is probably done in the ref*add-[LABEL macros, and more specifically in the ref*field macro)
+		- if the ref*suppress-period register is not set to true, append a period to the end of ref*string
+		- if the ref*post-punct string is defined (where does this get defined?)
+			- append the interpolated value of ref*post-punct to ref*string
+			- remove ref*post-punct
+	- if the ref*string string is not defined, define it (what for? so that the printing function has something to work with?)
+
+
+# ref*add-dflt (add-default, presumably)
+	- gets called when there is no macro defined for a given label, yet the label exists in the reference database
+	- call ref*field with the label and a comma for an argument
+
+
+# ref*field
+	- every label-creating macro calls this macro
+	- ARGS: label-of-field delimiter-before space-before/formatting-beginning space-after/formatting-end (optional)delimiter-after  
+	- if ref*string(which is the whole reference, I guess?) is defined,
+		- if ref*post-punct is defined (it got defined at the end of the last call of this macro)
+			- append the second ARG and ref*post-punct plus a space at the end of the ref*string
+			- remove ref*post-punct
+		- if its not defined, just append the second ARG and a space to the ref*string
+	
+	- if ref*spring has not been defined, it will get defined by an append command here. (this is just info, not an actual conditioal)
+	- append the third ARG, the interpolated field of in the first ARG, the fourth ARG, and an interpolation of a string which resets the font to roman
+
+	- if there are more than four ARGs, set ref*post-punct to the fifth one
+	- set ref*suppress-period to 0 (since we have put the period in if needed
+
+
+# ref*add-A
+	- define the eval*[A string, with the contents of the [A label
+	- make the last character of eval*[A the contents of eval*[A
+	- if we didn't set the [skip-[A] register earlier
+		- check if eval*[A (the last character of the [A field) is a period (.)
+			- if footnotes and/or endnotes are off(ie. in a case of an inline citation, or bibliography?), remove the last character (in this case, a period) from [A
+				- makes sense, since you don't need such a delimiter in a parenthetical citation
+		- else, if the last character is not a period, and either footnotes or endnotes are on
+			- if the idem field is not empty, call ref*field(?)

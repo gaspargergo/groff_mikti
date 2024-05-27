@@ -1,0 +1,21 @@
+Használt "field" típusok:
+%A (author): szerző 
+%T (title): cím
+%I (issuer): kiadó
+%C (city): kiadás helye
+%D (date): kiadás ideje
+%V (volume): folyóirat évfolyama, könyv kötetszáma
+%N (number): folyóirat füzetszáma
+%P (page): lapszám
+%S (series): sorozat
+%R (record): RMNy/RMK szám (alapvetően azt írja elé a program, hogy RMNy
+%J (journal): folyóirat
+%B (book): tanulmánykötet/válogatáskötet címe
+%b (book author): tanulmánykötet/válogatáskötet szerzője, ha nem az egész könyvet idézzük
+%E (editor): szerkesztő
+%k : szerkesztő helyett más felirat, pl. ford., kiad., előszó, utószó
+%l : fordító (ha van külön szerkesztő is)
+%s (site): weboldal
+%u (url): webes link, url
+%a (access): webes forrás utolsó hozzáférésének dátuma
+%n (note): bármi egyéb megjegyzés, amit a hivatkozás után akarnánk írni

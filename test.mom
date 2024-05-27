@@ -1,0 +1,93 @@
+.PAPER A4
+.T_Margin 1i
+.B_Margin 1i
+.L_Margin 1i
+.R_Margin 1i
+.PRINTSTYLE TYPESET
+.FT TR
+.AUTOLEAD 1.5 FACTOR
+.JUSTIFY
+.HY OFF
+.CHAPTER_STRING "\&"
+.INCLUDE extracts.mom
+.TITLE "Teszt dokumentum, avagy mi a fene van itten"
+.HEADERS o
+.PAGENUM_HYPHENS o
+.HEADING_STYLE 1 \
+SIZE 12
+.BLOCKQUOTE_SIZE 12
+.BLOCKQUOTE_INDENT 2
+.R1
+no-label-in-text
+no-label-in-reference
+join-authors " \[en] " " \[en] " " \[en] " 
+database /home/gergo/projekt/groff/references/temp
+.R2
+.FOOTNOTE_REFS
+.INDENT_REFS FOOTNOTE 0
+.BIBLIOGRAPHY_STRING "Irodalomjegyzék"
+.START
+.HEADING 1 "Tesztelő brigád"
+.PP
+This is an example paragraph. I wonder what goes on here. Lalalala.
+.PP
+This is another paragraph.\c
+.[
+uses
+.]
+Can't wait to see the output of this!\c
+.[
+uses
+%P 23
+.]
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec tincidunt praesent semper feugiat. Lobortis elementum nibh tellus molestie nunc non blandit. Sed euismod nisi porta lorem mollis aliquam ut porttitor leo. Diam\c
+.[
+critique
+.]
+sollicitudin tempor id eu. Integer enim neque volutpat ac tincidunt vitae. Nulla pharetra diam\c
+.[
+zrini
+%n Tulajdonképpen nem is az a fontos, amit Zrínyi itt ír, hanem ahogy sajtó alá rendezték a szöveget
+.]
+sit amet nisl suscipit. Sociis natoque penatibus et magnis. Dapibus ultrices in iaculis nunc sed augue lacus viverra. Enim\c
+.[
+csere
+.]
+nulla aliquet porttitor lacus luctus accumsan tortor. Nunc scelerisque viverra mauris in aliquam. Faucibus in ornare quam viverra orci sagittis eu volutpat odio. 
+.BLOCKQUOTE
+Magnis dis parturient montes nascetur ridiculus. Viverra tellus in hac habitasse platea dictumst vestibulum. Habitant morbi tristique senectus et netus et malesuada fames. Vitae tempus quam pellentesque nec. 
+.BLOCKQUOTE OFF
+Tempor orci dapibus ultrices in iaculis nunc sed.
+.HEADING 1 "Második teszt"
+.PP
+Elit duis tristique 
+nibh sit amet commodo nulla facilisi. 
+.PP
+Nézzük, hogyan dealel ez a kedves groff a magyar karakterekkel. Heló, Gergő vagyok, te gügye lökemaka\c
+.[
+sohasem voltunk modernek
+%P 25\[en]27
+.]
+!
+.PP
+Mégegy kedves paragrafus, ű Ű ő Ő!
+.PP
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisis magna etiam tempor orci eu lobortis elementum nibh tellus. Turpis egestas integer eget aliquet. Praesent tristique magna sit amet purus gravida quis blandit turpis. Risus commodo viverra maecenas accumsan. Morbi tempus iaculis urna id volutpat lacus laoreet. Porta nibh venenatis cras sed felis. Nam libero justo laoreet sit amet cursus sit amet dictum. At varius vel pharetra vel turpis nunc. In dictum non consectetur a erat. Habitasse platea dictumst vestibulum rhoncus est pellentesque. Viverra suspendisse potenti nullam ac tortor vitae purus.
+.PP
+Semper quis lectus nulla at volutpat diam ut venenatis. Sit amet purus gravida quis blandit turpis cursus in hac. Adipiscing elit pellentesque habitant morbi tristique senectus et netus et. Imperdiet massa tincidunt nunc pulvinar sapien et ligula. Sollicitudin ac orci phasellus egestas tellus rutrum tellus. Turpis in eu mi bibendum neque egestas. Velit ut tortor pretium viverra suspendisse potenti nullam ac tortor. Eget egestas purus viverra accumsan in nisl nisi scelerisque eu. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Feugiat in ante metus dictum at. Gravida quis blandit turpis cursus in. Ut lectus arcu bibendum at varius. Odio ut sem nulla pharetra diam sit amet nisl suscipit. Bibendum est ultricies integer quis auctor elit sed vulputate mi.
+.PP
+Purus gravida quis blandit turpis cursus in. Maecenas pharetra convallis posuere morbi leo urna. Enim nec dui nunc mattis enim. Semper eget duis at tellus at urna condimentum mattis. Tristique senectus et netus et malesuada. Id semper risus in hendrerit gravida rutrum quisque non tellus. Non odio euismod lacinia at quis risus sed. Adipiscing enim eu turpis egestas pretium aenean. Elit ut aliquam purus sit amet luctus venenatis. Orci nulla pellentesque dignissim enim sit. Vitae congue mauris rhoncus aenean vel elit scelerisque. Vitae turpis massa sed elementum tempus egestas.
+.PP
+Mi bibendum neque egestas congue quisque. At consectetur lorem donec massa sapien faucibus et. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Euismod quis viverra nibh cras. Congue eu consequat ac felis. Et odio pellentesque diam volutpat commodo sed egestas egestas fringilla. Viverra aliquet eget sit amet. Iaculis nunc sed augue lacus viverra vitae congue eu. Vulputate ut pharetra sit amet aliquam id diam. Orci a scelerisque purus semper eget duis at tellus at. Vivamus arcu felis bibendum ut tristique et. Augue interdum velit euismod in pellentesque massa placerat duis. Turpis in eu mi bibendum neque egestas.
+.PP
+Faucibus ornare suspendisse sed nisi lacus sed viverra tellus in. Nec ultrices dui sapien eget mi proin sed libero enim. Auctor elit sed vulputate mi sit amet mauris. Placerat in egestas erat imperdiet. Sodales neque sodales ut etiam sit amet nisl purus in. Pharetra et ultrices neque ornare aenean euismod elementum. Lectus vestibulum mattis ullamcorper velit sed. Elementum nisi quis eleifend quam adipiscing vitae proin sagittis nisl. Sit amet consectetur adipiscing elit duis. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Orci phasellus egestas tellus rutrum tellus pellentesque. At lectus urna duis convallis.
+.
+.BIBLIOGRAPHY
+.R1
+no-label-in-text
+no-label-in-reference
+join-authors " \[en] " " \[en] " " \[en] " 
+sort A1Q1T1B1E1
+bibliography /home/gergo/projekt/groff/references/temp
+.R2
+.BIBLIOGRAPHY OFF

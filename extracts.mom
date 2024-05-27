@@ -1,0 +1,277 @@
+\# The following strings define the order of entries for different
+\# types of references.  Each letter in the string refers to a database
+\# field (A for author, T1/T2 for article and book titles, etc).
+\#
+.de ref*specs
+.\" Internet site - type 0
+.ds ref*spec!0 A T s D u a n
+.\" Journal article - type 1
+.ds ref*spec!1 A T J V D N P 
+.\" Book - type 2
+.ds ref*spec!2 A T V l E I C D P S n
+.\" Article within book - type 3
+.ds ref*spec!3 A T b B V l E I C D P S n
+.\" Old edition of book - type 4
+.ds ref*spec!4 A T V I C D R E P n
+..
+\# unsetting macros from the mom macro package, since they work much simpler in this case, and a default call can replace all of them
+.rm ref*add-C
+.rm ref*add-I
+.rm ref*add-P
+.rm ref*add-J
+.rm ref*add-s
+.rm ref*add-k
+\#
+\# The following macros determine how entries are formatted WRT
+\# punctuation, type style, additional strings, etc.
+\#
+\# ref*field arguments:
+\# o First argument is the database field letter.
+\# o Second argument is the punctuation character to use to separate this
+\#   field from the previous field.
+\# o Third argument is a string with which to prefix this field.
+\# o Fourth argument is a string with which to postfix this field.
+\# o Fifth argument is a string to add after the punctuation character
+\#   supplied by the next field.
+\#
+\# %A Author(s)
+.de ref*add-A
+\# needs some work .length author-length "\\*[author]"
+\#.ie '\\*[authors]'\\*([A' .as ref*string Uo.
+\#.ds authors \\*([A
+.ref*field A 
+.rr skip-[A
+..
+\# %T Title (generic)
+.de ref*add-T
+.ds last_title \\*([T
+.ie '\\*([A'' .ref*field T "" \f[TI] \fP
+.el \{\
+.		ref*field T , \f[TI] \fP
+.\}
+..
+\# %D date
+.de ref*add-D
+\# having a number or volume (only in Journal article type) are special cases
+\# post-punct field is used to eliminate the space after
+.ie d[N .ref*field D "" "" "" ""
+.el \{\
+.	 	ie d[V .ref*field D . (  ) 
+.	 	el .ref*field D ,
+.\}
+..
+\# %S Series (books or journals)
+.de ref*add-S
+.ref*field S "" ( )
+..
+\# %S Volume (books or journals)
+.de ref*add-V
+.ie \\n[ref*type]=1 .ref*field V ""
+.el .ref*field V ,
+..
+\#
+\# Article or chapter in book
+\# --------------------------
+\# %B Book title (when citing an article from a book)
+.de ref*add-B
+.ie '\\*([b'' .ref*field B " =" \f[TI] \fP
+.el .ref*field B , \f[TI] \fP
+..
+\# %b main author when citing from a preface, introduction, foreword
+\# or afterword
+.de ref*add-b
+.if '\\*([A'\\*([b' .ds [b U\s[-2.5]\[u0150]\s0
+.ref*field b " ="
+..
+\# %E Editor(s)
+.de ref*add-E
+.ie '\\*([k'' .ref*field E , "szerk. "
+.el .ref*field E , "\\*([k "
+..
+\# %n notes at the end of reference
+.de ref*add-n
+.ref*field n .
+..
+\#
+\# Journal articles
+\# ----------------
+\# %N Journal number
+.de ref*add-N
+.ref*field N "/" "" "."
+..
+\#
+\# Translated works
+\# ----------------
+\# %l Trans(l)ator
+.de ref*add-l
+.ref*field l , "ford. "
+..
+\#
+\# Internet
+\# --------
+\# %a access date, i.e. the date you read it
+.de ref*add-a
+.ref*field a , "(Hozz\[u00E1]f\[u00E9]r\[u00E9]s: " )
+.nr ref*suppress-period 1
+..
+\# %u URL
+.de ref*add-u
+.ref*field u , 
+.rr [T
+..
+\#
+\# Old Works with an RMNy/RMK number
+\# ---------------------------------
+\# %R RMNy/RMK number
+.de ref*add-R
+.ref*field R "" "(RMNy " )
+..
+\#
+.de ref*add-dflt
+.ref*field \\$1 ,
+..
+\#
+\# Build up reference string from ref*add-<x> macros.
+\#
+\# First, a string to ensure next field's font is reset to roman
+\# (TYPESET) or non-underlined (TYPEWRITE)
+\#
+\# difference from mom implementation: post-punct can also be used with an empty argument to eliminate space before the next label
+\#
+.de ref*field
+.if d ref*string \{\
+.   ie d ref*post-punct \{\
+.      as ref*string "\\$2\\*[ref*post-punct]\"
+.      rm ref*post-punct
+.   \}
+.   el .as ref*string "\\$2 \"
+.\}
+.as ref*string "\\$3\\*([\\$1\\$4\f[TR]
+.if \\n[.$]>4 .ds ref*post-punct "\\$5\f[TR]
+.nr ref*suppress-period 0
+..
+\#
+\#THE REFER MACROS (need to de-mom them in order to make the whole thing portable) + ref*build
+\#
+\#
+\# Build up the ref*string
+\#
+\# Correct MLA "typewritten" style (printstyle TYPEWRITE) demands
+\# two spaces after each period.  The spaces are hardwired into the
+\# string definitions (ref*add-<x>), so we have to make sure that there
+\# aren't two spaces when the printstyle is TYPESET.  Since I find that
+\# references look a bit crowded with 0 sentence space, I've bumped it
+\# up to +8.  User's sentence spacing is reset in FOOTNOTES and ENDNOTES.
+\#
+.de ref*build
+.rm ref*string
+.\" check if last reference had the same title (should not happen in endnotes,
+.\" so no check for that is implemented
+.ie '\\*[last_title]'\\*([T' .as ref*string \f[TI]Uo., \fP\\*([P
+.el \{\
+.while \\n[.$] \{\
+.   if d [\\$1 \{\
+.      ie d ref*add-\\$1 .ref*add-\\$1
+.      el .ref*add-dflt \\$1
+.   \}
+.   shift
+.\}
+.\}
+.\" now add a final period
+.ie d ref*string \{\
+.   if !\\n[ref*suppress-period] .as ref*string .
+.   if d ref*post-punct \{\
+.      as ref*string "\\*[ref*post-punct]
+.      rm ref*post-punct
+.   \}
+.\}
+.el .ds ref*string
+..
+\# Refer's "1st" macro.  Since it is possible to define database
+\# fields using any single letter, we remove all possible string
+\# definitions of the form [X and [x.  Also, reset ref*spec!<n>
+\# strings to their defaults.
+\#
+.de ]-
+.ref*specs
+.rm [A [B [C [D [E [F [G [H [I [J [K [L [M \
+    [N [O [P [Q [R [S [T [U [V [W [X [Y [Z \
+    [a [b [c [d [e [f [g [h [i [j [k [l [m \
+    [n [o [p [q [r [s [t [u [v [w [x [y [z
+.if r [e .rr [e \" [e persists if %e field is last
+.rr ref*type
+.rm ref*string
+..
+\#
+\# Refer's "2nd" macro; builds up a reference with ref*build, and
+\# prints it with ref*print.
+\#
+.de ][
+.nr ref*type \\$1
+.if \\n[ref*type]=0 \{\
+.   ie d [C \{\
+.      if !d [I \{\
+.         nr pre-1900 1 \" If pre-1900, MLA allows excluding publisher
+.         nr ref*type 2
+.      \}
+.   \}
+.   el .nr ref*type 2
+.   if d [q .nr ref*type 2
+.\}
+.if d [u .nr ref*type 0 \" If %u exists, always treat as Internet ref
+.if \\n[ref*type]=3 \{\
+.   if !'\\*([R'' \{\
+.      nr ref*type 4
+.      ds ref*spec!4 i Q A m p T2 B R O C I D P n
+.   \}
+.   if !'\\*([G'' \{\
+.      nr ref*type 4
+.      ds ref*spec!4 i A m p T2 B G O C I D P O n
+.   \}
+.\}
+.if \\n[[T] \{\
+.   als [T1 [T
+.   als [T2 [T
+.\}
+.ie d ref*spec!\\n[ref*type] .ref*build \\*[ref*spec!\\n[ref*type]]
+.el \{\
+.   @error unknown reference type '\\n[ref*type]'
+.   ref*build \\*[ref*spec!0]
+.\}
+.if !\\n[.hy]=0 \{\
+.nr #RESTORE_HY \\n[.hy]
+.if !r#REF_HY .nh
+.\}
+.ref*print
+.if !\\n[#RESTORE_HY]=0 .hy \\n[#RESTORE_HY]
+.rr #RESTORE_HY
+.rm ref*string
+.rm [F [T1 [T2
+..
+\#
+\# Refer's "3rd" macros, which set up and terminate the output
+\# of collected references
+\#
+.de ]<
+.rm author \" If not, persists over multiple 'bibliography' commands
+.als ref*print ref*end-print
+.nr #REF 1
+.if \\n[#BIB_LIST]=1 \{\
+.   nr #IN_BIB_LIST 1
+.   LIST DIGIT \\*[$BIB_LIST_SEPARATOR] \\*[$BIB_LIST_PREFIX]
+.\}
+..
+\#
+.de ]>
+.LIST OFF
+.rr #REF
+.rr #IN_BIB_LIST
+.als ref*print ref*normal-print
+..
+.de ref*normal-print
+.nr #CURRENT_HY \\n[.hy]
+.FOOTNOTE
+\\*[ref*string]
+.FOOTNOTE OFF
+
+..

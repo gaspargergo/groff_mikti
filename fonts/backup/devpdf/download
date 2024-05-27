@@ -1,0 +1,39 @@
+# foundry	ps-font-name	ps-font-file
+# A blank foundry is the default.
+
+	AvantGarde-Book	/usr/share/fonts/Type1/URWGothic-Book.t1
+	AvantGarde-BookOblique	/usr/share/fonts/Type1/URWGothic-BookOblique.t1
+	AvantGarde-Demi	/usr/share/fonts/Type1/URWGothic-Demi.t1
+	AvantGarde-DemiOblique	/usr/share/fonts/Type1/URWGothic-DemiOblique.t1
+	Bookman-Demi	/usr/share/fonts/Type1/URWBookman-Demi.t1
+	Bookman-DemiItalic	/usr/share/fonts/Type1/URWBookman-DemiItalic.t1
+	Bookman-Light	/usr/share/fonts/Type1/URWBookman-Light.t1
+	Bookman-LightItalic	/usr/share/fonts/Type1/URWBookman-LightItalic.t1
+	Courier	*/usr/share/fonts/Type1/NimbusMonoPS-Regular.t1
+	Courier-Bold	*/usr/share/fonts/Type1/NimbusMonoPS-Bold.t1
+	Courier-BoldOblique	*/usr/share/fonts/Type1/NimbusMonoPS-BoldItalic.t1
+	Courier-Oblique	*/usr/share/fonts/Type1/NimbusMonoPS-Italic.t1
+	FreeEuro	../devps/freeeuro.pfa
+	Helvetica	*/usr/share/fonts/Type1/NimbusSans-Regular.t1
+	Helvetica-Bold	*/usr/share/fonts/Type1/NimbusSans-Bold.t1
+	Helvetica-BoldOblique	*/usr/share/fonts/Type1/NimbusSans-BoldItalic.t1
+	Helvetica-Narrow	/usr/share/fonts/Type1/NimbusSansNarrow-Regular.t1
+	Helvetica-Narrow-Bold	/usr/share/fonts/Type1/NimbusSansNarrow-Bold.t1
+	Helvetica-Narrow-BoldOblique	/usr/share/fonts/Type1/NimbusSansNarrow-BoldOblique.t1
+	Helvetica-Narrow-Oblique	/usr/share/fonts/Type1/NimbusSansNarrow-Oblique.t1
+	Helvetica-Oblique	*/usr/share/fonts/Type1/NimbusSans-Italic.t1
+	NewCenturySchlbk-Bold	/usr/share/fonts/Type1/C059-Bold.t1
+	NewCenturySchlbk-BoldItalic	/usr/share/fonts/Type1/C059-BdIta.t1
+	NewCenturySchlbk-Italic	/usr/share/fonts/Type1/C059-Italic.t1
+	NewCenturySchlbk-Roman	/usr/share/fonts/Type1/C059-Roman.t1
+	Palatino-Bold	/usr/share/fonts/Type1/P052-Bold.t1
+	Palatino-BoldItalic	/usr/share/fonts/Type1/P052-BoldItalic.t1
+	Palatino-Italic	/usr/share/fonts/Type1/P052-Italic.t1
+	Palatino-Roman	/usr/share/fonts/Type1/P052-Roman.t1
+	Symbol	*/usr/share/fonts/Type1/StandardSymbolsPS.t1
+	Times-Bold	*/usr/share/fonts/Type1/NimbusRoman-Bold.t1
+	Times-BoldItalic	*/usr/share/fonts/Type1/NimbusRoman-BoldItalic.t1
+	Times-Italic	*/usr/share/fonts/Type1/NimbusRoman-Italic.t1
+	Times-Regular	*/usr/share/fonts/Type1/NimbusRoman-Regular.t1
+	ZapfChancery-MediumItalic	/usr/share/fonts/Type1/Z003-MediumItalic.t1
+	ZapfDingbats	*/usr/share/fonts/Type1/D050000L.t1

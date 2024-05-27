@@ -1,0 +1,92 @@
+3c3
+< %A Rita Felski
+---
+> %A Rita F\s-[2.5]ELSKI\s0
+10c10
+< %A Rita Felski
+---
+> %A Rita F\s-[2.5]ELSKI\s0
+17,18c17,18
+< %A Bruno Latour
+< %l Gecser Ottó
+---
+> %A Bruno L\s-[2.5]ATOUR\s0
+> %l G\s-[2.5]ECSER\s0 Ottó
+24c24
+< %A Szegedy-Maszák Mihály
+---
+> %A S\s-[2.5]ZEGEDY-MASZÁK\s0 Mihály
+32c32
+< %A Németh G. Béla
+---
+> %A N\s-[2.5]ÉMETH\s0 G. Béla
+41c41
+< %A Horváth János
+---
+> %A H\s-[2.5]ORVÁTH\s0 János
+49,51c49,51
+< %A Klaniczay Tibor
+< %A Szauder József
+< %A Szabolcsi Miklós
+---
+> %A K\s-[2.5]LANICZAY\s0 Tibor
+> %A S\s-[2.5]ZAUDER\s0 József
+> %A S\s-[2.5]ZABOLCSI\s0 Miklós
+59c59
+< %E Komlovszki Tibor
+---
+> %E K\s-[2.5]OMLOVSZKI\s0 Tibor
+67c67
+< %A S. Lauter Éva
+---
+> %A S. L\s-[2.5]AUTER\s0 Éva
+70,71c70,71
+< %E R. Várkonyi Ágnes
+< %E Kósa László
+---
+> %E R. V\s-[2.5]ÁRKONYI\s0 Ágnes
+> %E K\s-[2.5]ÓSA\s0 László
+78c78
+< %A Bán Imre
+---
+> %A B\s-[2.5]ÁN\s0 Imre
+80c80
+< %b Bán Imre
+---
+> %b B\s-[2.5]ÁN\s0 Imre
+88c88
+< %A Cholnoky Viktor
+---
+> %A C\s-[2.5]HOLNOKY\s0 Viktor
+95c95
+< %A Fráter Zoltán
+---
+> %A F\s-[2.5]RÁTER\s0 Zoltán
+103c103
+< %A Pajkossy Györgyné
+---
+> %A P\s-[2.5]AJKOSSY\s0 Györgyné
+111c111
+< %A Parászka Boróka
+---
+> %A P\s-[2.5]ARÁSZKA\s0 Boróka
+126c126
+< %A Zrínyi Miklós
+---
+> %A Z\s-[2.5]RÍNYI\s0 Miklós
+129,130c129,130
+< %E Kovács Sándor Iván
+< %E Kulcsár Péter
+---
+> %E K\s-[2.5]OVÁCS\s0 Sándor Iván
+> %E K\s-[2.5]ULCSÁR\s0 Péter
+138c138
+< %A Faludi Ferenc
+---
+> %A F\s-[2.5]ALUDI\s0 Ferenc
+142,143c142,143
+< %E Vörös Imre
+< %E Uray Piroska
+---
+> %E V\s-[2.5]ÖRÖS\s0 Imre
+> %E U\s-[2.5]RAY\s0 Piroska
