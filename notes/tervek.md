@@ -30,6 +30,9 @@ ToDo:
 
 - vim refer adatbázis filetype plugin
 
+- Megnézni, milyen a licensze a mom-nak, feltüntetni, hogy felhasználtam a kódot
+    - licenszet rakni magára a projektre is
+
 DONE:
 - egy header, amit mindig betesz a fájlok elejére, hogy ne kelljen azzal szöszölni(hiszen nem igen változik a formattálás az itk-ban
 - Uo+pp, ha az előző mű
