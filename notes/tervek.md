@@ -11,9 +11,8 @@ ToDo:
     - miért rossz az uő az irodalomjegyzékben?
     - tesztelni, hogy van-e U-T font, ha nem, akkor kell csak workaround
 
-- egy header, amit mindig betesz a fájlok elejére, hogy ne kelljen azzal szöszölni(hiszen nem igen változik a formattálás az itk-ban
-
 - megcsinálni, hogy a TITLE egy start utáni macro legyen, mondjuk HEADING 1-ből
+    - Lehet, hogy néhány metadatát érdemes a Userre hagyni, pl. title és author, mert kellhet a dologhoz
 
 - script, ami bib formátumból átkonvertálja a bibliográfiai adatbázist refer által használható formátumba
     - seddel ez talán nem egy nehéz feladat
@@ -32,6 +31,7 @@ ToDo:
 - vim refer adatbázis filetype plugin
 
 DONE:
+- egy header, amit mindig betesz a fájlok elejére, hogy ne kelljen azzal szöszölni(hiszen nem igen változik a formattálás az itk-ban
 - Uo+pp, ha az előző mű
 - script, ami végigmegy egyesével az authorokon a refer adatbázisban, és megkérdezi, hogy a név melyik része legyen kiskapitálisban, abba teszi őket
     - plusz még formattálja a karaktereket is, hogy az ő-k,ű-k, stb.-k használhatóak legyenek (ehhez lehet, hogy elég egy preformatter is)

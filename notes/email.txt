@@ -1,7 +1,0 @@
-Azt mindenképpen szeretném kiemelni, hogy mennyire tetszett az, hogy 
-	1. interpolálva vannak a fieldek labeljei a makróhívásokhoz
-	2. Van egy default handlerje azoknak az eseteknek, amikor van egy field, aminek egyébként nincs
-
-kérdések:
-	- szerinte van-e jobb megoldás a small capsre, arra, ha a név benne van a címben
-	- szerinte hogy lehetne linket embeddelni citációban?
