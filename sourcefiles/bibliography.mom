@@ -1,0 +1,9 @@
+.BIBLIOGRAPHY
+.R1
+no-label-in-text
+no-label-in-reference
+join-authors " \[en] " " \[en] " " \[en] " 
+sort A1Q1T1B1E1
+bibliography %REF_DB%
+.R2
+.BIBLIOGRAPHY OFF

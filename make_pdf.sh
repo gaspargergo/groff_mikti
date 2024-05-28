@@ -7,7 +7,7 @@ references=$2
 reference_folder=$(dirname $references)
 
 #populating header with correct paths and concatenating it with source file in a temp file
-sed -e "s|%STYLESHEET%|$script_folder/sourcefiles/stylesheet.mom|" -e "s|%REF_FILE%|$script_folder/sourcefiles/extracts.mom|" -e "s|%REF_DB%|$script_folder/.temp_ref_db|" $script_folder/sourcefiles/header.mom | cat - $source_file > $script_folder/.temp_source.mom
+sed -e "s|%STYLESHEET%|$script_folder/sourcefiles/stylesheet.mom|" -e "s|%REF_FILE%|$script_folder/sourcefiles/extracts.mom|" -e "s|%REF_DB%|$script_folder/.temp_ref_db|" $script_folder/sourcefiles/header.mom | cat - $source_file $script_folder/sourcefiles/bibliography.mom > $script_folder/.temp_source.mom
 
 #creating the to_SC file, by patching in earlier small caps, and calling the small caps script on new author fields
 cp $references $reference_folder/to_sc
@@ -15,8 +15,9 @@ if [[ -f $reference_folder/sc.patch ]]; then patch $reference_folder/to_sc $refe
 tools/choose-small-caps.sh $reference_folder/to_sc
 diff $references $reference_folder/to_sc > $reference_folder/sc.patch
 
-#running preconv, so refer can use the file with Hungarian chars as well, this temp file is substituted into the mom source file header
+#running preconv, so refer can use the file with Hungarian chars as well, this temp file is substituted into the mom source file header+bibliography
 preconv $reference_folder/to_sc > $script_folder/.temp_ref_db
+sed -i -e "s|%REF_DB%|$script_folder/.temp_ref_db|" $script_folder/.temp_source.mom 
 
 #before running groff, run the source file through a sed filter which looks for
 #references in the [@reference] format, and changes the format to something groff can understand

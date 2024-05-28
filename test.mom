@@ -53,12 +53,3 @@ Mi bibendum neque egestas congue quisque. At consectetur lorem donec massa sapie
 .PP
 Faucibus ornare suspendisse sed nisi lacus sed viverra tellus in. Nec ultrices dui sapien eget mi proin sed libero enim. Auctor elit sed vulputate mi sit amet mauris. Placerat in egestas erat imperdiet. Sodales neque sodales ut etiam sit amet nisl purus in. Pharetra et ultrices neque ornare aenean euismod elementum. Lectus vestibulum mattis ullamcorper velit sed. Elementum nisi quis eleifend quam adipiscing vitae proin sagittis nisl. Sit amet consectetur adipiscing elit duis. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Orci phasellus egestas tellus rutrum tellus pellentesque. At lectus urna duis convallis.
 .
-.BIBLIOGRAPHY
-.R1
-no-label-in-text
-no-label-in-reference
-join-authors " \[en] " " \[en] " " \[en] " 
-sort A1Q1T1B1E1
-bibliography /home/gergo/projekt/groff/.temp_ref_db
-.R2
-.BIBLIOGRAPHY OFF
