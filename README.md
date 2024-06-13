@@ -12,9 +12,13 @@ Előfeltétele, hogy a következő programok fel legyenek telepítve:
 - patch
 
 1. Klónozzuk ezt a git repót:
-    git clone https://github.com/gaspargergo/groff_mikti
+```
+git clone https://github.com/gaspargergo/groff_mikti
+```
 2. Tegyük futtathatóvá a programot:
+```
     sudo chmod +x groff_mikti/make_pdf.sh
+```
 
 ## Használat
 
@@ -23,11 +27,15 @@ A következő fájlok kellenek egy PDf generálásához:
 - egy hivatkozási adatbázis
 
 Ha ezek megvannak, csak futtani kell a `make_pdf.sh` nevű scriptet (ami a projekt mappájában található), a hasonló módon:
+```
     make_pdf.sh <forrásfájl path-je> <hivatkozási adatbázis path-je> <kimeneti fájl path-je>
+```
 
 Egyenlőre csak úgy működik minden, hogyha a projekt mappájában van a forrásfájlunk, ez idővel ki lesz javítva
 Például, ha a repó mappájában lévő példafájlból akarunk pdf-et generálni, akkor ezt a parancsot kell beütni, miközben a projekt mappájában vagyunk:
+```
     ./make_pdf.sh test.mom references/books.refer document.pdf
+```
 
 ### Forrásfájl megírása
 
@@ -53,10 +61,12 @@ Ezek opcionálisak, annyiszor lehet őket használni, ahányszor kell.
 - `.HEADING <heading száma> "<heading címe>"`: Ezt lehet használni fejezetek, alfejezetek címzéséhez. A számozás egytől indul, ezek a fejezetcímek, a kettes headingek az alfejezetek, stb. stb.
 - így kell hivatkozni:
 Az előző sor végére rakunk egy `\c`-t, és utána
+```
     .[
         keresőszavak a hivatkozásra (név, cím, bármi)
         (opcionálisan)%P <Ide az oldalszám>
     .]
+```
 Ez alapvetően lábjegyzetben készít egy hivatkozást.
 - `.FOOTNOTE`: ez jelzi egy lábjegyzet elejét
 - `.FOOTNOTE END`: ez jelzi egy lábjegyzet végét
