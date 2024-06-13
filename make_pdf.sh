@@ -24,7 +24,7 @@ cat $script_folder/sourcefiles/header.mom $source_file $script_folder/sourcefile
 sed -i -e "s|%STYLESHEET%|$script_folder/sourcefiles/stylesheet.mom|" -e "s|%REF_FILE%|$script_folder/sourcefiles/extracts.mom|" -e "s|%REF_DB%|$script_folder/.temp_ref_db|" $script_folder/.temp_source.mom
 
 #--- COMPILATION AND CLEANUP ---
-pdfmom -P-e -k -R $script_folder/.temp_source.mom > document.pdf
+pdfmom -P-e -k -R $script_folder/.temp_source.mom > $3
 
 #cleanup
 rm $reference_folder/to_sc $script_folder/.temp*

@@ -9,7 +9,7 @@
 .JUSTIFY
 .HY OFF
 .CHAPTER_STRING "\&"
-.INCLUDE extracts.mom
+.INCLUDE sourcefiles/extracts.mom
 .TITLE "Teszt dokumentum, avagy mi a fene van itten"
 .HEADERS o
 .PAGENUM_HYPHENS o
