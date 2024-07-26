@@ -1,10 +1,7 @@
-.INCLUDE %REF_FILE%
-.INCLUDE %STYLESHEET%
 .R1
 no-label-in-text
 no-label-in-reference
 join-authors " \[en] " " \[en] " " \[en] " 
 database %REF_DB%
 .R2
-.START
 .

@@ -1,3 +1,7 @@
+.TITLE "Teszt cím"
+.AUTHOR "Gáspár Gergő"
+.START
+.
 .HEADING 1 "Tesztelő brigád"
 .PP
 This is an example paragraph. I wonder what goes on here. Lalalala.
