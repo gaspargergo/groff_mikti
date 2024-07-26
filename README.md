@@ -31,7 +31,6 @@ Ha ezek megvannak, csak futtani kell a `make_pdf.sh` nevű scriptet (ami a proje
 make_pdf.sh <forrásfájl path-je> <hivatkozási adatbázis path-je> <kimeneti fájl path-je>
 ```
 
-Egyenlőre csak úgy működik minden, hogyha a projekt mappájában van a forrásfájlunk, ez idővel ki lesz javítva
 Például, ha a repó mappájában lévő példafájlból akarunk pdf-et generálni, akkor ezt a parancsot kell beütni, miközben a projekt mappájában vagyunk:
 ```
 ./make_pdf.sh test.mom references/books.refer document.pdf
@@ -39,7 +38,7 @@ Például, ha a repó mappájában lévő példafájlból akarunk pdf-et generá
 
 ### Forrásfájl megírása
 
-Egy groff nevű programot használ ez a projekt a pdf-ek generálásához, ezért a forrásfájlban néhány groff makrót kell alkalmaznunk. Akit érdekel, a projekt a groffon belül is a mom nevű makrócsomagot használja, ennek [ezen a linken](http://www.schaffter.ca/mom/momdoc/toc.html) érhető el a dokumentációja. Szerencsére nem kell sok groff makrót ismerni ahhoz, hogy tudjuk használni írásra.
+Egy groff nevű programot használ ez a projekt a pdf-ek generálásához, ezért a forrásfájlban néhány groff makrót kell alkalmaznunk. Akit érdekel, a projekt a groffon belül is a mom nevű makrócsomagot használja, ennek [ezen a linken](http://www.schaffter.ca/mom/momdoc/toc.html) érhető el a dokumentációja. Szerencsére nem kell sok groff makrót ismerni ahhoz, hogy dolgozatok megírásához használható legyen.
 Amikor a leírásban kacsacsőröket használok, pl így: `<szám>`, akkor ez csak annyit jelent, hogy oda valamit be kell illeszteni, a kacsacsőröket nem kell beírni. 
 
 Az alábbiak a legfontosabb makrók:
